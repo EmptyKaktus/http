@@ -1,0 +1,7 @@
+def spn(jr):
+    response = jr['response']['GeoObjectCollection']['featureMember'][0]['GeoObject']
+    lower = response['boundedBy']['Envelope']['lowerCorner'].split()
+    upper = response['boundedBy']['Envelope']['upperCorner'].split()
+    x = str(abs(float(upper[0]) - float(lower[0])))
+    y = str(abs(float(upper[1]) - float(lower[1])))
+    return [x, y]
